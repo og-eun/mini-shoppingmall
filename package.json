@@ -1,0 +1,27 @@
+{
+  "name": "node-mini-shoppingmall",
+  "version": "1.0.0",
+  "description": "처음하는 node js - 쇼핑몰 기능 구현",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/og-eun/node-mini-shoppingmall.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/og-eun/node-mini-shoppingmall/issues"
+  },
+  "homepage": "https://github.com/og-eun/node-mini-shoppingmall#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.9",
+    "nodemon": "^2.0.13"
+  },
+  "devDependencies": {}
+}
