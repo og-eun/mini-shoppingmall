@@ -1,0 +1,17 @@
+version: "2"
+services:
+  myapp:
+    container_name: shoppingmall
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - redis
+      - mongo
+  mongo:
+    container_name: shoppingmall-mongo
+    image: "mongo:4.0"
+  redis:
+    container_name: shoppingmall-redis
+    image: "redis:6.2.6"

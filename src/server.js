@@ -1,13 +1,15 @@
-const express = require('express');
-const userRoute = require('./routes/user');
-const authRoute = require('./routes/auth');
+const express = require("express");
+const setRoutes = require("./routes");
+
 const app = express();
 
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// api route 등록
-app.use("/auth", authRoute);
-app.use("/users", userRoute);
+setRoutes(app);
+
+app.use((err, req, res, next) => {
+  res.json({ error: err });
+});
 
 module.exports = app;

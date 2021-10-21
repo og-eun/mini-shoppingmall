@@ -1,24 +1,9 @@
 const router = require("express").Router();
-const User = require("../models/User");
+const authController = require("../controller/auth");
+const { wrapHandler } = require("../middleware/handler");
 
-// 회원 가입
-router.post("/register", async (req, res) => {
-
-    const newUser = new User({
-        username: req.body.username,
-        email:    req.body.email,
-        password: req.body.password
-    });
-
-    try {
-        const savedUser = await newUser.save();
-        console.log(savedUser);
-        res.status(201).json(savedUser);
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-
-});
+router.get("/", wrapHandler(authController.checkToken)); // 토큰 체크
+router.post("/login", wrapHandler(authController.login)); // 로그인
+router.get("/logout", wrapHandler(authController.logout)); // 로그아웃
 
 module.exports = router;
